@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"time"
 )
 
 func main() {
@@ -24,8 +25,12 @@ func main() {
 	}
 
 	if fn, exists := days[*day]; exists {
-		fmt.Printf("Running Day %d\n", *day)
+		fmt.Printf("Running Day %d...\n\n", *day)
+		start := time.Now()
 		fn()
+		elapsed := time.Since(start)
+
+		fmt.Printf("\nCompleted in %s\n", elapsed)
 	} else {
 		fmt.Printf("Day %d not implemented\n", *day)
 		os.Exit(1)
