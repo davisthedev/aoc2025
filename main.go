@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	start := time.Now()
 	day := flag.Int("day", 0, "Advent of Code day to run (1-13)")
 	flag.Parse()
 
@@ -26,13 +27,13 @@ func main() {
 
 	if fn, exists := days[*day]; exists {
 		fmt.Printf("Running Day %d...\n\n", *day)
-		start := time.Now()
 		fn()
-		elapsed := time.Since(start)
 
-		fmt.Printf("\nCompleted in %s\n", elapsed)
 	} else {
 		fmt.Printf("Day %d not implemented\n", *day)
 		os.Exit(1)
 	}
+
+	elapsed := time.Since(start)
+	fmt.Printf("\nCompleted in %s\n", elapsed)
 }
