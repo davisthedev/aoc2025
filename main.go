@@ -4,6 +4,8 @@ import (
 	"aoc2025/day1"
 	"aoc2025/day2"
 	"aoc2025/day3"
+	"aoc2025/day4"
+	"aoc2025/day5"
 	"flag"
 	"fmt"
 	"os"
@@ -12,11 +14,11 @@ import (
 
 func main() {
 	start := time.Now()
-	day := flag.Int("day", 0, "Advent of Code day to run (1-13)")
+	day := flag.Int("day", 0, "Advent of Code day to run (1-12)")
 	flag.Parse()
 
-	if *day < 1 || *day > 13 {
-		fmt.Println("Error: Enter a day between 1 and 13")
+	if *day < 1 || *day > 12 {
+		fmt.Println("Error: Enter a day between 1 and 12")
 		flag.Usage()
 		os.Exit(1)
 	}
@@ -25,6 +27,8 @@ func main() {
 		1: day1.Day1,
 		2: day2.Day2,
 		3: day3.Day3,
+		4: day4.Day4,
+		5: day5.Day5,
 	}
 
 	if fn, exists := days[*day]; exists {
